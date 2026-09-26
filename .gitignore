@@ -1,0 +1,52 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Audio / generated analysis data
+backend/data/*
+backend/temp/*
+backend/uploads/*
+data/*
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+
+# Build / cache
+*.log
+coverage/
+.pytest_cache/
+.mypy_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Docker
+*.pid
+
+# Python tooling
+.pytest_cache/
