@@ -23,23 +23,23 @@ VOXIQ is a production-grade, scientifically defensible platform that analyzes ho
 
 ```
 Layer 1: Deterministic Engine (Zero LLM Dependency)
-??? Active Speaking Rate (WPM): total_words / (active_speech_seconds / 60)
-??? Acoustic Pauses (>0.5s) & Long Pauses (>1.2s)
-??? Filler Word Density: (filler_count / total_words) * 100
-??? Lexical n-gram Repetition & Type-Token Ratio (TTR)
-??? 30-Second Sliding Windows for Temporal Acceleration Detection
+-Active Speaking Rate (WPM): total_words / (active_speech_seconds / 60)
+-Acoustic Pauses (>0.5s) & Long Pauses (>1.2s)
+-Filler Word Density: (filler_count / total_words) * 100
+-Lexical n-gram Repetition & Type-Token Ratio (TTR)
+-30-Second Sliding Windows for Temporal Acceleration Detection
 
 Layer 2: ML & Semantic NLP (Representation Models)
-??? 384-dimensional Dense Embeddings (Sentence-Transformers all-MiniLM-L6-v2)
-??? Contiguous Sentence Semantic Coherence (Pairwise Cosine Similarity)
-??? Topic Boundary Segmentation & Drift Magnitude
-??? Question-to-Answer Semantic Relevance & Rubric Coverage
+-384-dimensional Dense Embeddings (Sentence-Transformers all-MiniLM-L6-v2)
+-Contiguous Sentence Semantic Coherence (Pairwise Cosine Similarity)
+-Topic Boundary Segmentation & Drift Magnitude
+-Question-to-Answer Semantic Relevance & Rubric Coverage
 
 Layer 3: Evidence-Linked Reasoning (Synthesizer & Interview Evaluator)
-??? Structured Evidence Assembly (Zero Raw Audio/Transcript sent directly for judgment)
-??? Exact Acoustic Timestamp Anchoring (e.g. "Speaking rate increased from 135 to 165 WPM")
-??? Rubric-based Interview Scoring (System Design, Algorithms, Architecture)
-??? Graceful Offline Degradation when LLM keys are absent
+-Structured Evidence Assembly (Zero Raw Audio/Transcript sent directly for judgment)
+-Exact Acoustic Timestamp Anchoring (e.g. "Speaking rate increased from 135 to 165 WPM")
+-Rubric-based Interview Scoring (System Design, Algorithms, Architecture)
+-Graceful Offline Degradation when LLM keys are absent
 ```
 
 ---
