@@ -1,4 +1,4 @@
-# VOXIQ ? Real-Time Multimodal Communication Intelligence Platform
+# VOXIQ * Real-Time Multimodal Communication Intelligence Platform
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Next.js 14](https://img.shields.io/badge/Next.js-14.2-black.svg)](https://nextjs.org/)
@@ -12,14 +12,14 @@ VOXIQ is a production-grade, scientifically defensible platform that analyzes ho
 
 ---
 
-## ?? Scientific Integrity & Boundary Enforcement
+## Scientific Integrity & Boundary Enforcement
 
 > [!IMPORTANT]
 > **Defensible Science Policy**: VOXIQ strictly **does NOT** claim to detect confidence, intelligence, mental state, personality, or truthfulness from voice. All outputs are strictly bounded under scientifically verifiable dimensions: *speech fluency*, *pacing dynamics*, *hesitation distributions*, *lexical repetition*, *sentence complexity*, and *semantic coherence*.
 
 ---
 
-## ??? The Three Analytical Layers
+## The Three Analytical Layers
 
 ```
 Layer 1: Deterministic Engine (Zero LLM Dependency)
@@ -44,7 +44,7 @@ Layer 3: Evidence-Linked Reasoning (Synthesizer & Interview Evaluator)
 
 ---
 
-## ?? Feature Status
+## Feature Status
 
 | Feature | Category | Status | Notes |
 |---|---|---|---|
@@ -67,7 +67,7 @@ Layer 3: Evidence-Linked Reasoning (Synthesizer & Interview Evaluator)
 
 ---
 
-## ?? Quickstart & Local Setup
+## Quickstart & Local Setup
 
 ### Prerequisites
 * Python 3.11+ (Python 3.14 compatible)
@@ -103,7 +103,7 @@ docker-compose up --build
 
 ---
 
-## ?? Comprehensive Test Suite
+## Comprehensive Test Suite
 
 All 16 unit and integration tests run in under 20 seconds:
 ```bash
@@ -119,7 +119,7 @@ pytest backend/tests/ -v
 
 ---
 
-## ?? Technical Defense & Architecture Documentation
+## Technical Defense & Architecture Documentation
 * [Architecture Specifications](docs/architecture/ARCHITECTURE.md)
 * [Metrics Taxonomy & Scientific Formulas](docs/architecture/METRICS_TAXONOMY.md)
 * [10-Question Interview Defense Guide](docs/defense/INTERVIEW_DEFENSE.md)
@@ -128,5 +128,5 @@ pytest backend/tests/ -v
 
 ---
 
-## ?? License
+## License
 MIT License. Copyright (c) 2026 VOXIQ Contributors.
