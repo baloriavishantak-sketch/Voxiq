@@ -1,132 +1,490 @@
-# VOXIQ * Real-Time Multimodal Communication Intelligence Platform
+# YUKTI — Real-Time Multimodal Communication Intelligence Platform
 
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Next.js 14](https://img.shields.io/badge/Next.js-14.2-black.svg)](https://nextjs.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com/)
-[![Tests](https://img.shields.io/badge/pytest-16%20passed-brightgreen.svg)]()
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+<p align="center">
+  <img src="./frontend/public/yukti-logo.png" width="550" alt="YUKTI Logo">
+</p>
 
-VOXIQ is a production-grade, scientifically defensible platform that analyzes how a person communicates during spoken practice and technical interviews. It goes significantly beyond speech-to-text by combining:
+<p align="center">
+  <b>Conversations to Insights</b>
+</p>
 
-**Audio Processing + Acoustic VAD + Faster-Whisper STT + Layer 1 Deterministic Metrics + Layer 2 ML/NLP + Layer 3 Evidence-Linked Reasoning + Real-Time Telemetry**
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.11+-blue">
+  <img src="https://img.shields.io/badge/Next.js-14-black">
+  <img src="https://img.shields.io/badge/FastAPI-0.115+-009688">
+  <img src="https://img.shields.io/badge/PyTorch-ML-red">
+  <img src="https://img.shields.io/badge/Tests-21%20Passed-success">
+  <img src="https://img.shields.io/badge/License-MIT-green">
+</p>
+
+
+## Overview
+
+YUKTI is a production-grade multimodal communication intelligence platform that analyzes **how a person communicates**, not just what they say.
+
+The system combines:
+
+**Audio Processing + Voice Activity Detection + Faster-Whisper Speech Recognition + Deterministic Communication Metrics + NLP Semantic Analysis + Evidence-Based Feedback + Real-Time Analytics**
+
+YUKTI transforms spoken conversations into measurable communication insights through a layered AI pipeline.
 
 ---
 
-## Scientific Integrity & Boundary Enforcement
+# Scientific Approach
 
 > [!IMPORTANT]
-> **Defensible Science Policy**: VOXIQ strictly **does NOT** claim to detect confidence, intelligence, mental state, personality, or truthfulness from voice. All outputs are strictly bounded under scientifically verifiable dimensions: *speech fluency*, *pacing dynamics*, *hesitation distributions*, *lexical repetition*, *sentence complexity*, and *semantic coherence*.
+> YUKTI focuses only on measurable communication signals. It does not claim to detect intelligence, personality, confidence, mental state, or truthfulness from voice.
+
+The platform analyzes scientifically observable characteristics:
+
+- Speech fluency
+- Speaking rate
+- Pause patterns
+- Filler-word usage
+- Lexical repetition
+- Sentence structure
+- Semantic coherence
+- Response organization
+- Communication trends over time
 
 ---
 
-## The Three Analytical Layers
+# System Architecture
 
 ```
-Layer 1: Deterministic Engine (Zero LLM Dependency)
--Active Speaking Rate (WPM): total_words / (active_speech_seconds / 60)
--Acoustic Pauses (>0.5s) & Long Pauses (>1.2s)
--Filler Word Density: (filler_count / total_words) * 100
--Lexical n-gram Repetition & Type-Token Ratio (TTR)
--30-Second Sliding Windows for Temporal Acceleration Detection
+                     USER AUDIO
+                         |
+                         |
+                  Audio Capture
+                         |
+                         |
+              Audio Preprocessing
+                         |
+        --------------------------------
+        |                              |
+        ▼                              ▼
+ Voice Activity Detection        Signal Analysis
+        |
+        |
+        ▼
+ Faster-Whisper Speech Recognition
+        |
+        |
+        ▼
+ Word Level Transcript
+        |
+        |
+ =========================================
+              YUKTI AI ENGINE
+ =========================================
 
-Layer 2: ML & Semantic NLP (Representation Models)
--384-dimensional Dense Embeddings (Sentence-Transformers all-MiniLM-L6-v2)
--Contiguous Sentence Semantic Coherence (Pairwise Cosine Similarity)
--Topic Boundary Segmentation & Drift Magnitude
--Question-to-Answer Semantic Relevance & Rubric Coverage
+        Layer 1
+ Deterministic Communication Metrics
 
-Layer 3: Evidence-Linked Reasoning (Synthesizer & Interview Evaluator)
--Structured Evidence Assembly (Zero Raw Audio/Transcript sent directly for judgment)
--Exact Acoustic Timestamp Anchoring (e.g. "Speaking rate increased from 135 to 165 WPM")
--Rubric-based Interview Scoring (System Design, Algorithms, Architecture)
--Graceful Offline Degradation when LLM keys are absent
+        |
+        |
+        ▼
+
+        Layer 2
+ Semantic NLP Intelligence
+
+        |
+        |
+        ▼
+
+        Layer 3
+ Evidence-Based Reasoning
+
+        |
+        |
+        ▼
+
+ Communication Intelligence Dashboard
 ```
 
 ---
 
-## Feature Status
+# Three Layer Intelligence Engine
 
-| Feature | Category | Status | Notes |
-|---|---|---|---|
-| 16kHz Rational Polyphase Resampling | Audio Engine | **IMPLEMENTED** | High-fidelity downmixing & RMS normalization |
-| Adaptive Log-Energy VAD & Pause Detection | Audio Engine | **IMPLEMENTED** | Configurable thresholds (0.5s / 1.2s) with hangover |
-| Faster-Whisper Word Timestamp STT | Speech Engine | **IMPLEMENTED** | CTranslate2 int8/CUDA word token alignment |
-| Active WPM & Gross WPM | Layer 1 | **IMPLEMENTED** | Speech duration vs session duration separation |
-| Filler Word Lexicon & Density | Layer 1 | **IMPLEMENTED** | Single & multi-word phrase matching ('you know', 'sort of') |
-| Lexical n-gram Repetition & TTR | Layer 1 | **IMPLEMENTED** | 1-gram to 3-gram repetition + Root TTR |
-| Temporal Sliding Window Timeline | Layer 1 | **IMPLEMENTED** | 30s windows with 15s step; detects acceleration |
-| Sentence-Transformers Embeddings | Layer 2 | **IMPLEMENTED** | `all-MiniLM-L6-v2` dense vectors |
-| Contiguous Semantic Coherence | Layer 2 | **IMPLEMENTED** | Pairwise adjacent cosine similarity tracking |
-| Topic Segmentation & Drift Detection | Layer 2 | **IMPLEMENTED** | Valley threshold detection in adjacent similarity |
-| Evidence-Anchored Feedback Synthesis | Layer 3 | **IMPLEMENTED** | All recommendations linked to timestamps |
-| Interview Mode & Rubric Evaluator | Layer 3 | **IMPLEMENTED** | Evaluates System Design, Algorithms, and Architecture |
-| Real-Time WebSocket Streaming | Real-time | **IMPLEMENTED** | Incremental 16-bit PCM streaming & live VAD telemetry |
-| Longitudinal Analytics & Personal Baseline | Analytics | **IMPLEMENTED** | Rolling WPM, filler trend, and pause averages |
-| Next.js App Router & Tailwind Dashboard | Frontend | **IMPLEMENTED** | Recharts pacing timeline, recorder, and transcript |
-| Multi-Speaker Diarization | Conversation | **FUTURE** | Planned for conversation mode |
+## Layer 1 — Deterministic Communication Engine
+
+Directly calculated communication measurements.
+
+| Metric | Description |
+|---|---|
+| Speaking Rate | Words per minute analysis |
+| Pause Detection | Acoustic silence measurement |
+| Filler Density | Detection of hesitation words |
+| Lexical Repetition | Repeated phrase analysis |
+| Type Token Ratio | Vocabulary diversity |
+| Sentence Statistics | Length and complexity |
+| Temporal Analysis | Communication changes over time |
 
 ---
 
-## Quickstart & Local Setup
+## Layer 2 — Semantic NLP Intelligence
 
-### Prerequisites
-* Python 3.11+ (Python 3.14 compatible)
-* Node.js 18+ and npm
-* Git
+Powered by local embedding models.
 
-### 1. Backend Setup
+Model:
+
+```
+sentence-transformers/all-MiniLM-L6-v2
+```
+
+Capabilities:
+
+- Sentence embeddings
+- Semantic similarity
+- Response relevance
+- Topic transition detection
+- Semantic coherence analysis
+- Concept coverage analysis
+
+---
+
+## Layer 3 — Evidence Based Reasoning
+
+The reasoning layer converts measured signals into structured feedback.
+
+Every recommendation is linked with:
+
+- Transcript evidence
+- Timestamp information
+- Communication metrics
+- Semantic patterns
+
+Example:
+
+```
+Speaking rate increased from 140 WPM
+to 165 WPM during the final section.
+```
+
+---
+
+# Interview Intelligence Mode
+
+YUKTI includes an advanced interview analysis environment.
+
+Unlike fixed question systems, users can enter:
+
+```
+Any technical or behavioral question
+```
+
+Example:
+
+```
+How does garbage collection work in Java?
+```
+
+The system automatically:
+
+- Classifies question type
+- Extracts important concepts
+- Generates expected answer areas
+- Builds evaluation criteria
+- Analyses spoken response
+
+
+## Supported Question Types
+
+- System Design
+- Data Structures & Algorithms
+- Software Architecture
+- Programming Concepts
+- Technical Explanation
+- Trade-off Analysis
+- Behavioral Questions
+
+
+## Interview Evaluation
+
+The response is analyzed through:
+
+| Category | Analysis |
+|-|-|
+| Delivery | Speaking rate, fillers, pauses |
+| Structure | Introduction, progression, conclusion |
+| Semantics | Relevance and concept coverage |
+| Communication | Clarity and organization |
+
+
+---
+
+# Feature Status
+
+| Feature | Category | Status |
+|-|-|-|
+| Audio preprocessing | Audio Engine | ✅ IMPLEMENTED |
+| 16kHz resampling | Audio Engine | ✅ IMPLEMENTED |
+| RMS normalization | Audio Engine | ✅ IMPLEMENTED |
+| Voice Activity Detection | Audio Engine | ✅ IMPLEMENTED |
+| Pause detection | Audio Engine | ✅ IMPLEMENTED |
+| Faster-Whisper STT | Speech Engine | ✅ IMPLEMENTED |
+| Word timestamps | Speech Engine | ✅ IMPLEMENTED |
+| Speaking rate analysis | Layer 1 | ✅ IMPLEMENTED |
+| Filler detection | Layer 1 | ✅ IMPLEMENTED |
+| Lexical repetition | Layer 1 | ✅ IMPLEMENTED |
+| Vocabulary analysis | Layer 1 | ✅ IMPLEMENTED |
+| Temporal communication timeline | Layer 1 | ✅ IMPLEMENTED |
+| Sentence embeddings | Layer 2 | ✅ IMPLEMENTED |
+| Semantic coherence | Layer 2 | ✅ IMPLEMENTED |
+| Topic transition analysis | Layer 2 | ✅ IMPLEMENTED |
+| Question intelligence | Interview AI | ✅ IMPLEMENTED |
+| Custom interview questions | Interview AI | ✅ IMPLEMENTED |
+| Evidence-linked feedback | Layer 3 | ✅ IMPLEMENTED |
+| Session history | Analytics | ✅ IMPLEMENTED |
+| Longitudinal analytics | Analytics | ✅ IMPLEMENTED |
+| Multi-speaker analysis | Future | 🔮 PLANNED |
+
+---
+
+# Technology Stack
+
+## Frontend
+
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
+- Recharts
+- Web Audio API
+
+
+## Backend
+
+- Python
+- FastAPI
+- SQLAlchemy
+- SQLite
+- PostgreSQL Compatible
+
+
+## AI / ML
+
+- PyTorch
+- Faster-Whisper
+- Sentence Transformers
+- NumPy
+- SciPy
+
+
+---
+
+# Project Structure
+
+```
+YUKTI/
+
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── core/
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   └── database/
+│   |
+│   └── tests/
+
+├── frontend/
+│   ├── src/
+│   │   ├── app/
+│   │   ├── components/
+│   │   └── lib/
+
+├── docs/
+
+├── docker-compose.yml
+├── README.md
+└── LICENSE
+```
+
+---
+
+# Installation
+
+## Requirements
+
+- Python 3.11+
+- Node.js 18+
+- npm
+- Git
+
+
+## Backend Setup
+
 ```bash
 cd backend
+
 pip install -r requirements.txt
-python -m pytest tests/ -v
 ```
 
-To run the backend server:
+Run tests:
+
 ```bash
-uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
+pytest tests/ -v
 ```
-Swagger API docs will be live at `http://127.0.0.1:8000/docs`.
 
-### 2. Frontend Setup
+Start backend:
+
+```bash
+uvicorn backend.app.main:app --reload
+```
+
+
+API Documentation:
+
+```
+http://localhost:8000/docs
+```
+
+
+---
+
+## Frontend Setup
+
 ```bash
 cd frontend
+
 npm install
-npm run build
+
 npm run dev
 ```
-Open `http://localhost:3000` in your browser.
 
-### 3. Docker Deployment
-```bash
-docker-compose up --build
+
+Open:
+
+```
+http://localhost:3000
 ```
 
 ---
 
-## Comprehensive Test Suite
+# Testing
 
-All 16 unit and integration tests run in under 20 seconds:
-```bash
-pytest backend/tests/ -v
+Backend:
+
+```
+21 tests passed
 ```
 
-* `test_health_and_sessions.py`: API health and Session CRUD lifecycle
-* `test_audio_vad.py`: 16kHz resampling, RMS normalization, synthetic VAD pause detection
-* `test_metrics_deterministic.py`: WPM formulas, pause distributions, filler density, repetition, temporal windows
-* `test_nlp_coherence.py`: Dense embeddings, adjacent coherence, topic transition drift, rubric relevance
-* `test_reasoning.py`: Evidence-anchored feedback generation, interview rubric evaluation
-* `test_api_pipeline.py`: Full end-to-end integration test (Audio upload -> VAD -> STT -> Metrics -> DB -> REST response)
+Coverage includes:
+
+- API pipeline
+- Audio processing
+- VAD detection
+- Metric calculations
+- NLP coherence
+- Topic analysis
+- Interview evaluation
+- Question intelligence
+
+
+Frontend:
+
+```
+Next.js Production Build
+✓ Passed
+✓ TypeScript Validation
+✓ Static Generation
+```
 
 ---
 
-## Technical Defense & Architecture Documentation
-* [Architecture Specifications](docs/architecture/ARCHITECTURE.md)
-* [Metrics Taxonomy & Scientific Formulas](docs/architecture/METRICS_TAXONOMY.md)
-* [10-Question Interview Defense Guide](docs/defense/INTERVIEW_DEFENSE.md)
-* [Speech Datasets Research](docs/research/DATASETS.md)
-* [Third-Party Open Source Licenses](docs/licenses/THIRD_PARTY_LICENSES.md)
+# Dashboard Modules
+
+## Communication Dashboard
+
+Provides:
+
+- Real-time metrics
+- Speech analytics
+- Communication overview
+
+
+## Recording Studio
+
+Includes:
+
+- Audio recording
+- Processing pipeline
+- Live telemetry
+
+
+## Interview Cockpit
+
+Includes:
+
+- Custom questions
+- AI question analysis
+- Response evaluation
+- Communication feedback
+
+
+## Analytics Suite
+
+Tracks:
+
+- Speaking trends
+- Filler trends
+- Semantic trends
+- Personal baselines
+
 
 ---
 
-## License
-MIT License. Copyright (c) 2026 VOXIQ Contributors.
+# Privacy First Architecture
+
+YUKTI follows a local-first AI approach.
+
+Core processing can run without external AI APIs.
+
+No external services are required for:
+
+- Speech analysis
+- Semantic embeddings
+- Communication metrics
+
+
+---
+
+# Roadmap
+
+## Completed
+
+✅ Speech Recognition  
+✅ Audio Intelligence  
+✅ NLP Analysis  
+✅ Interview Intelligence  
+✅ Analytics Dashboard  
+✅ Evidence-Based Feedback  
+
+
+## Future
+
+🔮 Multi-speaker conversations  
+🔮 Speaker diarization  
+🔮 Multilingual support  
+🔮 Real-time collaborative interviews  
+🔮 Advanced communication coaching  
+
+
+---
+
+# License
+
+MIT License
+
+---
+
+<p align="center">
+
+## YUKTI
+
+### Conversations to Insights
+
+Built with AI, Speech Processing and Human-Centered Intelligence.
+
+</p>
