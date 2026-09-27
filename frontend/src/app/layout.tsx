@@ -4,7 +4,7 @@ import { Cpu, ShieldCheck, Terminal, Layers } from "lucide-react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "VOXIQ · Multimodal Communication Intelligence",
+  title: "YUKTI · Multimodal Communication Intelligence",
   description: "Evidence-backed acoustic, linguistic, and semantic communication telemetry platform.",
 };
 
@@ -32,7 +32,7 @@ export default function RootLayout({
             <div className="flex items-center gap-3">
               <span className="flex items-center gap-1.5 text-slate-400">
                 <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-                <span>VOXIQ_SYSTEM_v1.0.0</span>
+                <span>YUKTI_SYSTEM_v1.0.0</span>
               </span>
               <span className="text-slate-700">|</span>
               <span className="hidden sm:inline text-slate-500">

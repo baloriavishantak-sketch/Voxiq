@@ -22,19 +22,13 @@ export function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4">
         {/* Left: Brand + Engine Status Beacon */}
         <div className="flex items-center gap-3.5">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-7 h-7 rounded-md bg-gradient-to-br from-cyan-400 via-sky-500 to-indigo-600 flex items-center justify-center shadow-[0_0_12px_rgba(0,229,255,0.35)] group-hover:scale-105 transition-transform">
-              <Activity className="w-4 h-4 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-base font-bold tracking-tight text-white leading-none">
-                VOXIQ
-              </span>
-              <span className="text-[8px] font-mono tracking-[0.14em] text-cyan-400 uppercase font-semibold mt-0.5">
-                INTEL_v1.0
-              </span>
-            </div>
-          </Link>
+          <Link href="/" className="flex items-center group">
+  <img
+    src="/yukti-logo.png"
+    alt="YUKTI"
+    className="h-9 w-auto object-contain"
+  />
+</Link>
 
           {/* Engine Status Beacon Pill */}
           <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0b1120] border border-cyan-500/20 text-[10px] font-mono text-slate-400">

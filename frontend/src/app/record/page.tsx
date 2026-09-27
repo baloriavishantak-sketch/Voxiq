@@ -96,7 +96,7 @@ export default function RecordPage() {
       <PageHeader 
         kicker="RECORDING_STUDIO"
         title="Speech Recording & Telemetry Bay" 
-        subtitle="Speak freely. VOXIQ pre-processes audio at 16kHz, performs acoustic VAD segmentation, Faster-Whisper transcription, and extracts Layer 1-3 communication telemetry."
+        subtitle="Speak freely. YUKTI pre-processes audio at 16kHz, performs acoustic VAD segmentation, Faster-Whisper transcription, and extracts Layer 1-3 communication telemetry."
       />
 
       {errorMessage && (

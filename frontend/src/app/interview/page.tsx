@@ -162,7 +162,7 @@ export default function InterviewPage() {
       <PageHeader 
         kicker="INTELLIGENCE_COCKPIT"
         title="AI Interview Console & Evaluation Dossier" 
-        subtitle="Practice with curated engineering presets or enter any custom prompt. VOXIQ locally decomposes the question, extracts technical concepts via KeyBERT+MMR, generates a dynamic rubric, and evaluates your spoken response across multiple scientific dimensions."
+        subtitle="Practice with curated engineering presets or enter any custom prompt. YUKTI locally decomposes the question, extracts technical concepts via KeyBERT+MMR, generates a dynamic rubric, and evaluates your spoken response across multiple scientific dimensions."
       />
 
       {errorMessage && (

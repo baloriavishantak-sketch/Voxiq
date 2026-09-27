@@ -29,7 +29,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
-              VOXIQ replaces subjective impressions with defensible telemetry. It decouples verbal communication into deterministic acoustic pacing, hesitation distributions, dense vector coherence, and evidence-backed coaching.
+              YUKTI replaces subjective impressions with defensible telemetry. It decouples verbal communication into deterministic acoustic pacing, hesitation distributions, dense vector coherence, and evidence-backed coaching.
             </p>
           </div>
 
@@ -351,7 +351,7 @@ export default function HomePage() {
               PSEUDO-SCIENTIFIC CLAIMS (REJECTED)
             </span>
             <p>
-              VOXIQ strictly rejects claims of detecting personality traits, innate intelligence, deception, or emotional authenticity from raw vocal acoustics. All evaluations are anchored exclusively in verifiable communication patterns.
+              YUKTI strictly rejects claims of detecting personality traits, innate intelligence, deception, or emotional authenticity from raw vocal acoustics. All evaluations are anchored exclusively in verifiable communication patterns.
             </p>
           </div>
         </div>
