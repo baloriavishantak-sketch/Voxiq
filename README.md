@@ -1,7 +1,7 @@
 # YUKTI — Real-Time Multimodal Communication Intelligence Platform
 
 <p align="center">
-  <img src="./frontend/public/yukti-logo.png" width="550" alt="YUKTI Logo">
+  <img src="./frontend/public/yukti.png" width="550" alt="YUKTI Logo">
 </p>
 
 <p align="center">
