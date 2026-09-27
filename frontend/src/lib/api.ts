@@ -6,6 +6,8 @@ import {
   FeedbackData, 
   InterviewQuestion, 
   InterviewEvaluation,
+  QuestionAnalysisResult,
+  CustomQuestionInput,
   AnalyticsOverview,
   AnalyticsTrendPoint
 } from "./types";
@@ -91,11 +93,35 @@ export async function listInterviewQuestions(): Promise<InterviewQuestion[]> {
   return res.json();
 }
 
-export async function evaluateInterview(sessionId: string, questionId: string): Promise<InterviewEvaluation> {
+export async function analyzeInterviewQuestion(
+  prompt: string,
+  category?: string
+): Promise<QuestionAnalysisResult> {
+  const res = await fetch(`${API_BASE}/interview/analyze-question`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt, category }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: "Question analysis failed" }));
+    throw new Error(err.detail || "Question analysis failed");
+  }
+  return res.json();
+}
+
+export async function evaluateInterview(
+  sessionId: string,
+  questionId?: string,
+  customQuestion?: CustomQuestionInput
+): Promise<InterviewEvaluation> {
   const res = await fetch(`${API_BASE}/interview/evaluate`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ session_id: sessionId, question_id: questionId }),
+    body: JSON.stringify({
+      session_id: sessionId,
+      question_id: questionId,
+      custom_question: customQuestion,
+    }),
   });
   if (!res.ok) throw new Error("Failed to evaluate interview response");
   return res.json();

@@ -9,6 +9,9 @@ DEFAULT_INTERVIEW_QUESTIONS: List[Dict[str, Any]] = [
         "title": "Design a Distributed Rate Limiter",
         "prompt": "How would you design a distributed rate limiter that handles tens of thousands of requests per second across multiple regional gateway nodes?",
         "difficulty": "advanced",
+        "question_type": "system_design",
+        "major_concepts": ["distributed rate limiter", "token bucket", "redis lua scripts", "race conditions", "regional gateways"],
+        "has_ground_truth": True,
         "expected_points": [
             "Token Bucket or Leaky Bucket algorithm",
             "Centralized in-memory store like Redis with Lua scripts for atomicity",
@@ -28,6 +31,9 @@ DEFAULT_INTERVIEW_QUESTIONS: List[Dict[str, Any]] = [
         "title": "Explain B-Trees vs LSM-Trees for Database Storage",
         "prompt": "Explain the architectural differences, read-write trade-offs, and disk access patterns between B-Trees and Log-Structured Merge (LSM) Trees in modern database storage engines.",
         "difficulty": "advanced",
+        "question_type": "comparative_tradeoff",
+        "major_concepts": ["b-trees", "lsm-trees", "database storage engines", "write amplification", "disk access patterns"],
+        "has_ground_truth": True,
         "expected_points": [
             "B-Trees optimize for random reads with in-place page updates",
             "LSM-Trees optimize for high write throughput via append-only commit logs and MemTables",
@@ -46,6 +52,9 @@ DEFAULT_INTERVIEW_QUESTIONS: List[Dict[str, Any]] = [
         "title": "Event-Driven vs Synchronous REST Microservices",
         "prompt": "When would you architect a service using asynchronous event-driven messaging instead of synchronous HTTP/REST APIs? Discuss failure coupling and consistency.",
         "difficulty": "intermediate",
+        "question_type": "comparative_tradeoff",
+        "major_concepts": ["event-driven messaging", "synchronous rest apis", "failure coupling", "eventual consistency", "dead-letter queues"],
+        "has_ground_truth": True,
         "expected_points": [
             "Decoupling of producer and consumer availability",
             "Eventual consistency vs strong ACID consistency",
@@ -60,9 +69,23 @@ DEFAULT_INTERVIEW_QUESTIONS: List[Dict[str, Any]] = [
     }
 ]
 
+# In-memory registry for dynamically analyzed custom questions
+_CUSTOM_QUESTIONS_CACHE: Dict[str, Dict[str, Any]] = {}
+
+
+def register_custom_question(question_data: Dict[str, Any]) -> str:
+    """Registers an analyzed custom question for in-memory session lookups."""
+    qid = question_data.get("id") or f"custom-{abs(hash(question_data.get('prompt', '')))%1000000:06d}"
+    question_data["id"] = qid
+    _CUSTOM_QUESTIONS_CACHE[qid] = question_data
+    return qid
+
 
 def get_interview_question_by_id(question_id: str) -> Optional[Dict[str, Any]]:
+    """Retrieves an interview question either from preset bank or custom registry."""
     for q in DEFAULT_INTERVIEW_QUESTIONS:
         if q["id"] == question_id:
             return q
+    if question_id in _CUSTOM_QUESTIONS_CACHE:
+        return _CUSTOM_QUESTIONS_CACHE[question_id]
     return None

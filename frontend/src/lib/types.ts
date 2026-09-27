@@ -97,6 +97,9 @@ export interface InterviewQuestion {
   prompt: string;
   difficulty: string;
   expected_points: string[];
+  question_type?: string;
+  major_concepts?: string[];
+  is_custom?: boolean;
 }
 
 export interface RubricCriterionEvaluation {
@@ -104,6 +107,43 @@ export interface RubricCriterionEvaluation {
   score: number;
   evidence: string;
   feedback: string;
+}
+
+export interface ConceptCoverageItem {
+  concept: string;
+  coverage_score: number;
+  is_covered: boolean;
+  evidence_sentence?: string | null;
+}
+
+export interface QuestionAnalysisResult {
+  id: string;
+  is_custom: boolean;
+  title: string;
+  prompt: string;
+  category: string;
+  difficulty: string;
+  question_type: string;
+  question_type_label: string;
+  classification_method: string;
+  classification_confidence: number;
+  major_concepts: string[];
+  expected_points: string[];
+  rubric_criteria: { criterion: string; description: string }[];
+  has_ground_truth: boolean;
+  technical_correctness_status: string;
+  technical_correctness_disclaimer: string;
+}
+
+export interface CustomQuestionInput {
+  prompt: string;
+  category?: string;
+  title?: string;
+  difficulty?: string;
+  question_type?: string;
+  major_concepts?: string[];
+  expected_points?: string[];
+  rubric_criteria?: { criterion: string; description: string }[];
 }
 
 export interface InterviewEvaluation {
@@ -114,6 +154,26 @@ export interface InterviewEvaluation {
   structure_score: number;
   criteria: RubricCriterionEvaluation[];
   summary_feedback: string;
+  question_type?: string;
+  major_concepts?: string[];
+  concept_coverage?: ConceptCoverageItem[];
+  communication_metrics?: {
+    wpm: number;
+    filler_count: number;
+    filler_density: number;
+    pause_count: number;
+    average_pause_seconds: number;
+  };
+  structure_breakdown?: {
+    has_introductory_framing: boolean;
+    has_concluding_synthesis: boolean;
+    has_signposted_transitions: boolean;
+    sentence_variety: boolean;
+    total_spoken_sentences: number;
+  };
+  has_ground_truth?: boolean;
+  technical_correctness_status?: string;
+  technical_correctness_disclaimer?: string;
 }
 
 export interface AnalyticsOverview {
