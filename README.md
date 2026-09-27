@@ -5,10 +5,6 @@
 </p>
 
 <p align="center">
-  <b>Conversations to Insights</b>
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/Python-3.11+-blue">
   <img src="https://img.shields.io/badge/Next.js-14-black">
   <img src="https://img.shields.io/badge/FastAPI-0.115+-009688">
